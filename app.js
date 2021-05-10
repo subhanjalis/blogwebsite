@@ -60,6 +60,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+
 mongoose.connect("mongodb+srv://admin-subhanjali:somya@15@blog.rhp08.mongodb.net/userDB", {useNewUrlParser: true});
 mongoose.set("useCreateIndex", true);
 
@@ -643,7 +644,10 @@ app.post("/unfollow", function(req, res){
 
 
 
-
+let port =  process.env.PORT;
+if(port== null || ""){
+  port =3000;
+}
 app.listen('3000' || process.env.PORT, function() {
-  console.log("Server started on port 3000.");
+  console.log("Server started on port");
 });
